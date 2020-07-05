@@ -7,11 +7,7 @@ import { GiftedChat } from 'react-native-gifted-chat';
 
 const Chat = (props) => {
 
-  const user = {
-    _id: 1,
-    name: 'Maria',
-    avatar: 'url'
-  };
+  const {user} = props.navigation.state.params
 
   const messages = [{
     _id: 1,

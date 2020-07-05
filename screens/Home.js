@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View, 
   Text, 
@@ -7,17 +7,33 @@ import {
   StyleSheet,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import api from '../api';
 
 const Home = (props) => {
 
-  function onPressEntrar(){
-    Actions.chat();
+  const [name, setName] = useState('');
+
+  async function onPressEntrar(){
+
+    //Procurar no banco se usuário existe
+    const user = await api.findUserByName(name);
+    if(user == null){
+      const newUser = {
+        _id: new Date().getTime(),
+        name: name,
+        avatar: 'https://placeimg.com/140/140people'
+      }
+      await api.createUser(newUser);
+      Actions.chat({ user: newUser });
+    }else{
+      Actions.chat({ user });
+    }
   }
 
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Digite seu nome</Text>
-      <TextInput style={styles.input}></TextInput>
+      <TextInput style={styles.input} value={name} onChangeText={setName}></TextInput>
       <TouchableOpacity onPress={onPressEntrar}>
         <Text style={styles.button}>Entrar</Text>
       </TouchableOpacity>
