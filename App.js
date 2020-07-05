@@ -10,7 +10,7 @@ export default function App() {
     <Router>
       <Scene key="root">
         <Scene key="home" title="Home" component={Home}/>
-        <Scene key="chat" title="Char" component={Chat}/>
+        <Scene key="chat" title="Chat" component={Chat}/>
       </Scene>
     </Router>
   );

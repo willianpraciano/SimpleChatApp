@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-const Home = (props) => {
+const Chat = (props) => {
   return (
     <View>
       <Text>Home</Text>
@@ -9,4 +9,4 @@ const Home = (props) => {
   );
 }
 
-export default Home;
+export default Chat;
