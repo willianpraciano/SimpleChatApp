@@ -21,7 +21,7 @@ const Home = (props) => {
       const newUser = {
         _id: new Date().getTime(),
         name: name,
-        avatar: 'https://placeimg.com/140/140people'
+        avatar: 'https://placeimg.com/140/140/any'
       }
       await api.createUser(newUser);
       Actions.chat({ user: newUser });
