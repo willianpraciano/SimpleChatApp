@@ -13,6 +13,7 @@ const Chat = (props) => {
   const [messages, setMessages] = useState([]);
 
   useEffect(()=>{
+    console.disableYellowBox = true;
     api.updateMessages((msg)=>{
       setMessages((prevMsgs) => GiftedChat.append(prevMsgs, msg));
     });

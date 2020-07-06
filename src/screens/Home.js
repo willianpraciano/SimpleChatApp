@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View, 
   Text, 
@@ -12,6 +12,10 @@ import api from '../api';
 const Home = (props) => {
 
   const [name, setName] = useState('');
+
+  useEffect(()=>{
+    console.disableYellowBox = true;
+  },[]);
 
   async function onPressEntrar(){
 
